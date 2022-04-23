@@ -20,9 +20,7 @@ session_start();
 <body>
 <div>
 <?php
-  $home_icon="";
-  $logoutlink="<a href='?page=logout'><button >Logout</button></a>";
-  $helloWorld="<p style='color:white;margin-right:5px;'>Hello</p>";
+
 
 
   if(isset($_SESSION['uid'])){

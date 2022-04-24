@@ -10,6 +10,7 @@ class LoginContr extends Login{
     public function loginUser(){
         
         $this->getUser($this->email, $this->pwd);  
+        $this->getPages();
         header("Location:../pages/index.php");
             
     }

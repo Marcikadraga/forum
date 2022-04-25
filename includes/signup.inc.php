@@ -20,5 +20,6 @@ if(isset($_POST["submit"])){
     $signup->signupUser();
 
     //going to back to front page
-    header("location: ../pages/index.php");
+    header("location: ../pages/index.php?page=logout");
+    
 }

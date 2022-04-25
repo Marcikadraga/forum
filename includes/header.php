@@ -20,6 +20,8 @@ session_start();
 <body>
 <div>
 <?php
+
+
 if(!isset($_SESSION['uid'])){
     echo "<div class='header'>
     <a href='index.php?page=signup'><button >Signup</button></a>
@@ -29,23 +31,29 @@ if(!isset($_SESSION['uid'])){
 
 
 if(isset($_SESSION['uPagesData'])){
+    ?>
+    <div class="header">
+        <div class=header_sql_buttons>
+        <?php
     for($x=0; $x < count($_SESSION['uPagesData']); $x++){
         if($_SESSION['status']=="user" && $_SESSION['uPagesData'][$x]["requiredStatus"]=="user" ){
             ?>
-                <div class="header">
                 <a href='?page=<?php echo $_SESSION['uPagesData'][$x]["page"]?>' ><button ><?php echo $_SESSION['uPagesData'][$x]["page"]?></button></a>
-                Hello <?php echo $_SESSION['uid'];?> !<img style="width:100px;height: 100px;" src="../imgs/portraits/<?php echo session('img') ?>" alt=""><a href='?page=logout'><button >Logout</button></a>
-                </div>
+
             <?php
         }
         if($_SESSION['status']=="admin"){
             ?>
+                
                 <a href='?page=<?php echo $_SESSION['uPagesData'][$x]["page"]?>' ><button ><?php echo $_SESSION['uPagesData'][$x]["page"]?></button></a>
-                <h1>asdasdasd</h1>
             <?php
         }
     }
+    ?>
+    </div>
+    <div class="name"><?php echo $_SESSION['uid'];?></div><img  src="../imgs/portraits/<?php echo session('img') ?>" alt=""><a href='?page=logout'><button >Logout</button></a></div>
+    <?php
 }
-
+    ?>
 
 
